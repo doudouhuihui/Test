@@ -1,8 +1,10 @@
-import java.util.LinkedHashSet;
+package Collections;
+
+import java.util.HashSet;
 
 /*****************************************************************************
- * @className: LinkedHashSetTest$
- * @date : 2019/4/11$ 9:56$
+ * @className: HashSetTeast$
+ * @date : 2019/4/11$ 9:55$
  * @author : 陈伟振   (chenweizhen@vvise.com)
  * @module : [项目]-[一级菜单]-[二级菜单]-[三级菜单]
  * @desc : [功能简介]
@@ -12,9 +14,10 @@ import java.util.LinkedHashSet;
  * 1
  * 2
  ******************************************************************************/
-public class LinkedHashSetTest {
+public class HashSetTest {
     public static void main(String[] args) {
-        LinkedHashSet linkedHashSet = new LinkedHashSet();
+        HashSet hashSet = new HashSet();
+        hashSet.iterator();
 
     }
 }

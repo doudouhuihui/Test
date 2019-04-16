@@ -1,5 +1,7 @@
+package Collections;
+
 /*****************************************************************************
- * @className: CopyOnWriteArraySet$
+ * @className: Collections.CopyOnWriteArraySet$
  * @date : 2019/4/11$ 9:58$
  * @author : 陈伟振   (chenweizhen@vvise.com)
  * @module : [项目]-[一级菜单]-[二级菜单]-[三级菜单]

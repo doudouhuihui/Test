@@ -1,9 +1,11 @@
+package Collections;
+
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.*;
 
 /*****************************************************************************
- * @className: HashMapTest$
+ * @className: Collections.HashMapTest$
  * @date : 2019/4/9$ 17:07$
  * @author : 陈伟振   (chenweizhen@vvise.com)
  * @module : [项目]-[一级菜单]-[二级菜单]-[三级菜单]

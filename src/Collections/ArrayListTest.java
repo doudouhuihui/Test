@@ -1,7 +1,9 @@
+package Collections;
+
 import java.util.ArrayList;
 
 /*****************************************************************************
- * @className: ArrayListTest$
+ * @className: Collections.ArrayListTest$
  * @date : 2019/4/15$ 15:56$
  * @author : 陈伟振   (chenweizhen@vvise.com)
  * @module : [项目]-[一级菜单]-[二级菜单]-[三级菜单]

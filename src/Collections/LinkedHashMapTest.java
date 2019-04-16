@@ -1,9 +1,11 @@
+package Collections;
+
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 /*****************************************************************************
- * @className: LinkedHashMapTest$
+ * @className: Collections.LinkedHashMapTest$
  * @date : 2019/4/15$ 14:17$
  * @author : 陈伟振   (chenweizhen@vvise.com)
  * @module : [项目]-[一级菜单]-[二级菜单]-[三级菜单]

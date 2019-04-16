@@ -1,8 +1,10 @@
-import java.util.concurrent.ConcurrentHashMap;
+package Collections;
+
+import java.util.LinkedList;
 
 /*****************************************************************************
- * @className: ConcurrentHashMapTest$
- * @date : 2019/4/16$ 9:44$
+ * @className: Collections.LinkedListTest$
+ * @date : 2019/4/15$ 15:52$
  * @author : 陈伟振   (chenweizhen@vvise.com)
  * @module : [项目]-[一级菜单]-[二级菜单]-[三级菜单]
  * @desc : [功能简介]
@@ -12,9 +14,8 @@ import java.util.concurrent.ConcurrentHashMap;
  * 1
  * 2
  ******************************************************************************/
-public class ConcurrentHashMapTest {
+public class LinkedListTest {
     public static void main(String[] args) {
-        ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();
-        concurrentHashMap.put("", "");
+        LinkedList linkedList = new LinkedList();
     }
 }

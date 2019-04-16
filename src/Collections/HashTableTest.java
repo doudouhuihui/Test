@@ -1,7 +1,9 @@
+package Collections;
+
 import java.util.*;
 
 /*****************************************************************************
- * @className: HashTableTest$
+ * @className: Collections.HashTableTest$
  * @date : 2019/4/9$ 9:18$
  * @author : 陈伟振   (chenweizhen@vvise.com)
  * @module : [项目]-[一级菜单]-[二级菜单]-[三级菜单]

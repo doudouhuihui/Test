@@ -1,7 +1,9 @@
+package Collections;
+
 import java.util.TreeSet;
 
 /*****************************************************************************
- * @className: TreeSetTest$
+ * @className: Collections.TreeSetTest$
  * @date : 2019/4/15$ 11:35$
  * @author : 陈伟振   (chenweizhen@vvise.com)
  * @module : [项目]-[一级菜单]-[二级菜单]-[三级菜单]

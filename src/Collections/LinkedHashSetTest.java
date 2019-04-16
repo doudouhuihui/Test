@@ -1,8 +1,10 @@
-import java.util.LinkedList;
+package Collections;
+
+import java.util.LinkedHashSet;
 
 /*****************************************************************************
- * @className: LinkedListTest$
- * @date : 2019/4/15$ 15:52$
+ * @className: Collections.LinkedHashSetTest$
+ * @date : 2019/4/11$ 9:56$
  * @author : 陈伟振   (chenweizhen@vvise.com)
  * @module : [项目]-[一级菜单]-[二级菜单]-[三级菜单]
  * @desc : [功能简介]
@@ -12,8 +14,9 @@ import java.util.LinkedList;
  * 1
  * 2
  ******************************************************************************/
-public class LinkedListTest {
+public class LinkedHashSetTest {
     public static void main(String[] args) {
-        LinkedList linkedList = new LinkedList();
+        LinkedHashSet linkedHashSet = new LinkedHashSet();
+
     }
 }
