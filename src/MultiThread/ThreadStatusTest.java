@@ -5,7 +5,7 @@ package MultiThread;
  * @date : 2019/4/17$ 17:14$
  * @author : 陈伟振   (chenweizhen@vvise.com)
  * @module : [项目]-[一级菜单]-[二级菜单]-[三级菜单]
- * @desc : [功能简介]
+ * @desc : [线程的五种状态]
  * ------------------------------------------------------------
  * 修改历史
  * 序号             日期                      修改人                  修改原因
@@ -13,57 +13,39 @@ package MultiThread;
  * 2
  ******************************************************************************/
 public class ThreadStatusTest {
-   static Thread thread;
-    public static void main(String[] args) {
-        Runnable runnable = new ThreadStatus();
-        thread = new Thread(runnable);
-        //新建状态
-        System.out.println(thread.getName()+thread.getState());
-        thread.start();
-        System.out.println(thread.getName()+thread.getState());
+    public static void main(String[] args) throws InterruptedException {
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                //3.当执行该方法时，为运行状态
+                System.out.println(Thread.currentThread().getState());
+
+                //4.此时为阻塞状态
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        });
+        //1.此时只是创建普通线程对象，和一般对象没什么区别，状态为新建
+        System.out.println(t.getState());
+
+        t.run();
+
+        //2.当调用start方法，状态由新建转换为就绪，不一定执行run方法
+        t.start();
+
+        System.out.println("main thread");
+        //让main线程等t线程执行完
+        t.join();
+        //5.线程已经死亡
+        System.out.println(t.getState());
+
+        //线程死亡不能复活，会抛异常
+        //t.start();
     }
+
 }
-class ThreadStatus implements Runnable {
 
-    @Override
-    public void run() {
-        Runnable runnable = new ThreadStatus2();
-        Thread thread = new Thread(runnable);
-        System.out.println(thread.getName()+thread.getState());
-        thread.start();
-        System.out.println(thread.getName()+thread.getState());
-
-        try {
-            Thread.sleep(200);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        System.out.println(thread.getName()+thread.getState());
-
-        try {
-            thread.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        System.out.println(thread.getName()+thread.getState());
-    }
-}
-class ThreadStatus2 implements Runnable {
-
-    @Override
-    public void run() {
-        try {
-            Thread.sleep(1500);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        System.out.println(ThreadStatusTest.thread.getName()+ThreadStatusTest.thread.getState());
-
-        try {
-            Thread.sleep(200);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-    }
-}

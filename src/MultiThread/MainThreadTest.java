@@ -1,37 +1,42 @@
 package MultiThread;
 
 /*****************************************************************************
- * @className: Main$
- * @date : 2019/4/17$ 17:55$
+ * @className: MainThreadTest$
+ * @date : 2019/4/18$ 9:31$
  * @author : 陈伟振   (chenweizhen@vvise.com)
  * @module : [项目]-[一级菜单]-[二级菜单]-[三级菜单]
- * @desc : [功能简介]
+ * @desc : [主线程和子线程之间关系]
  * ------------------------------------------------------------
  * 修改历史
  * 序号             日期                      修改人                  修改原因
  * 1
  * 2
  ******************************************************************************/
-public class Main {
+public class MainThreadTest {
     public static void main(String[] args) {
-        Runnable runnable = new Runnable() {
+        //主线程不能设置为守护线程
+        //System.out.println(Thread.currentThread().isAlive());
+        //Thread.currentThread().setDaemon(true);
+
+        Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
-                for(int i = 0;i <100_0000;i++){
-                    System.out.println(i);
-                }
+                System.out.println("我开始运行了");
                 try {
-                    Thread.sleep(2000);
+                    Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                System.out.println(123456);
+                System.out.println("我睡醒了");
             }
-        };
-        Thread thread = new Thread(runnable);
-        System.out.println(thread.isAlive());
-        thread.setDaemon(true);
+        });
+        //设置守护进程后会随着主线程死亡
+        //thread.setDaemon(true);
         thread.start();
-        System.out.println("main");
+        System.out.println("主线程走完了");
+
+
     }
+
+
 }
