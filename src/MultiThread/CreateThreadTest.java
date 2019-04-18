@@ -24,6 +24,7 @@ public class CreateThreadTest {
         //实现Runnable接口
         new Thread(new DemoThread2()).start();
 
+        //实现Callable接口
         FutureTask ft = new FutureTask(new DemoThread3());
         new Thread(ft).start();
         System.out.println(ft.get());
