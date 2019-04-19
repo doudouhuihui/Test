@@ -1,5 +1,8 @@
 package MultiThread;
 
+import java.util.List;
+import java.util.Vector;
+
 /*****************************************************************************
  * @className: Main$
  * @date : 2019/4/17$ 17:55$
@@ -14,24 +17,45 @@ package MultiThread;
  ******************************************************************************/
 public class Main {
     public static void main(String[] args) {
-        Runnable runnable = new Runnable() {
+        final List list = new Vector<>();
+
+        Thread t1 = new Thread(new Runnable() {
             @Override
             public void run() {
-                for(int i = 0;i <100_0000;i++){
-                    System.out.println(i);
+                for (int i = 0; i < 100;i++) {
+                   list.add(i);
+                    try {
+                        Thread.sleep(146);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 }
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                System.out.println(123456);
             }
-        };
-        Thread thread = new Thread(runnable);
-        System.out.println(thread.isAlive());
-        thread.setDaemon(true);
-        thread.start();
-        System.out.println("main");
+        });
+
+
+        Thread t2 = new Thread(new Runnable() {
+            int a ;
+            @Override
+            public void run() {
+                while (true) {
+                        System.out.print("I");
+                        if (list.size() >= 100) {
+                            break;
+                        }
+
+                        try {
+                            Thread.sleep(100);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+
+
+                }
+            }
+        });
+
+        t1.start();
+        t2.start();
     }
 }

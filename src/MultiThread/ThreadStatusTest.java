@@ -32,7 +32,7 @@ public class ThreadStatusTest {
         //1.此时只是创建普通线程对象，和一般对象没什么区别，状态为新建
         System.out.println(t.getState());
 
-        t.run();
+
 
         //2.当调用start方法，状态由新建转换为就绪，不一定执行run方法
         t.start();
@@ -40,6 +40,7 @@ public class ThreadStatusTest {
         System.out.println("main thread");
         //让main线程等t线程执行完
         t.join();
+
         //5.线程已经死亡
         System.out.println(t.getState());
 

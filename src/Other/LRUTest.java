@@ -1,7 +1,9 @@
+package Other;
+
 import java.util.HashMap;
 
 /*****************************************************************************
- * @className: LRUTest$
+ * @className: Other.LRUTest$
  * @date : 2019/4/15$ 16:41$
  * @author : 陈伟振   (chenweizhen@vvise.com)
  * @module : [项目]-[一级菜单]-[二级菜单]-[三级菜单]

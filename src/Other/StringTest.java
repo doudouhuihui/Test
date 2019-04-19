@@ -1,7 +1,8 @@
-import java.io.UnsupportedEncodingException;
+package Other;
+
 
 /*****************************************************************************
- * @className: StringTest$
+ * @className: Other.StringTest$
  * @date : 2019/4/16$ 17:37$
  * @author : 陈伟振   (chenweizhen@vvise.com)
  * @module : [项目]-[一级菜单]-[二级菜单]-[三级菜单]

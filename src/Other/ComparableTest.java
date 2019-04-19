@@ -1,7 +1,9 @@
+package Other;
+
 import java.util.*;
 
 /*****************************************************************************
- * @className: ComparableTest$
+ * @className: Other.ComparableTest$
  * @date : 2019/4/16$ 10:54$
  * @author : 陈伟振   (chenweizhen@vvise.com)
  * @module : [项目]-[一级菜单]-[二级菜单]-[三级菜单]
@@ -16,7 +18,7 @@ public class ComparableTest {
     public static void main(String[] args) {
 //        List list = new ArrayList();
 //
-//        list.add(new CT());
+//        list.add(new Other.CT());
 //        Collections.sort(list);
         CT ct1 = new CT();
         CT ct2 = new CT();

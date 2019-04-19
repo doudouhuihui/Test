@@ -1,5 +1,7 @@
+package Other;
+
 /*****************************************************************************
- * @className: BitTest$
+ * @className: Other.BitTest$
  * @date : 2019/4/16$ 17:57$
  * @author : 陈伟振   (chenweizhen@vvise.com)
  * @module : [项目]-[一级菜单]-[二级菜单]-[三级菜单]
