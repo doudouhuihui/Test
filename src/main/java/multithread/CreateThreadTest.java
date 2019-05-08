@@ -9,7 +9,7 @@ import java.util.concurrent.FutureTask;
  * @date : 2019/4/17$ 14:54$
  * @author : 陈伟振   (chenweizhen@vvise.com)
  * @module : [项目]-[一级菜单]-[二级菜单]-[三级菜单]
- * @desc : [创建线程的三种方式]
+ * @desc : [创建线程的三种方式：继承Thread类，实现Runnable接口，实现Callable接口]
  * ------------------------------------------------------------
  * 修改历史
  * 序号             日期                      修改人                  修改原因

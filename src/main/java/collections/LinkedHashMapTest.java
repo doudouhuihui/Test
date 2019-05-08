@@ -9,7 +9,7 @@ import java.util.Map;
  * @date : 2019/4/15$ 14:17$
  * @author : 陈伟振   (chenweizhen@vvise.com)
  * @module : [项目]-[一级菜单]-[二级菜单]-[三级菜单]
- * @desc : [功能简介]
+ * @desc : [JDK自带的LRU实现]
  * ------------------------------------------------------------
  * 修改历史
  * 序号             日期                      修改人                  修改原因
@@ -39,12 +39,10 @@ public class LinkedHashMapTest {
         Iterator iterator = linkedHashMap.keySet().iterator();
         while (iterator.hasNext()){
 
-            iterator.next();
-            iterator.remove();
-            iterator.remove();
+
+            System.out.println(iterator.next());
         }
 
-            System.out.println();
 
     }
 }
