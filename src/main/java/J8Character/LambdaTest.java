@@ -1,10 +1,8 @@
-package Collections;
-
-import java.util.ArrayList;
+package J8Character;
 
 /*****************************************************************************
- * @className: Collections.ArrayListTest$
- * @date : 2019/4/15$ 15:56$
+ * @className: LambdaTest$
+ * @date : 2019/5/6$ 16:25$
  * @author : 陈伟振   (chenweizhen@vvise.com)
  * @module : [项目]-[一级菜单]-[二级菜单]-[三级菜单]
  * @desc : [功能简介]
@@ -14,8 +12,5 @@ import java.util.ArrayList;
  * 1
  * 2
  ******************************************************************************/
-public class ArrayListTest {
-    public static void main(String[] args) {
-        ArrayList arrayList = new ArrayList();
-    }
+public class LambdaTest {
 }
