@@ -1,5 +1,8 @@
 package multithread;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -20,7 +23,10 @@ import java.util.concurrent.Executors;
 public class ThreadProblem1 {
     private int count = 0;
 
-    private void add10K() {
+    public int getCount() {
+        return count;
+    }
+    public synchronized void add10K() {
        for (int i = 0; i < 10000; i++) {
            count++;
        }
@@ -30,15 +36,16 @@ public class ThreadProblem1 {
         final ThreadProblem1 test = new ThreadProblem1();
         Thread t1 = new Thread(() -> {
             test.add10K();
+
         });
         Thread t2 = new Thread(() -> {
             test.add10K();
         });
+
         t1.start();
         t2.start();
         t1.join();
         t2.join();
-        System.out.println(test.count);
-        ExecutorService executorService = Executors.newFixedThreadPool(1000);
+
     }
 }

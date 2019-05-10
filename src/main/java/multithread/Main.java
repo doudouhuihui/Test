@@ -16,46 +16,65 @@ import java.util.Vector;
  * 2
  ******************************************************************************/
 public class Main {
-    public static void main(String[] args) {
-        final List list = new Vector<>();
+    public static void main(String[] args) throws InterruptedException {
+        final Thread t1, t2;
+        final Object obj = new Object();
+        final boolean[] flag = new boolean[1];
+        t1 = new Thread(() -> {
+            synchronized (obj) {
+                int i = 1;
+                while(i < 100) {
+                    if (!flag[0]) {
+                            System.out.println(i);
+                            i = i + 2;
+                            flag[0] = true;
+                            obj.notifyAll();
+                            try {
+                                obj.wait();
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
 
-        Thread t1 = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                for (int i = 0; i < 100;i++) {
-                   list.add(i);
-                    try {
-                        Thread.sleep(146);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
+
                     }
                 }
+                obj.notifyAll();
+
+
             }
+
         });
-
-
-        Thread t2 = new Thread(new Runnable() {
-            int a ;
-            @Override
-            public void run() {
-                while (true) {
-                        System.out.print("I");
-                        if (list.size() >= 100) {
-                            break;
-                        }
-
+        t2 = new Thread(() -> {
+            synchronized (obj) {
+                int i = 2;
+                while (i < 100) {
+                    if (flag[0]) {
+                            System.out.println(i);
+                            i = i + 2;
+                            flag[0] = false;
+                            obj.notifyAll();
+                            try {
+                                obj.wait();
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            }
+                    }else{
                         try {
-                            Thread.sleep(100);
+                            obj.wait();
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
-
-
+                    }
                 }
+                obj.notifyAll();
             }
-        });
-
+    });
         t1.start();
         t2.start();
-    }
+        t1.join();
+        t2.join();
+
+}
+
+
 }
