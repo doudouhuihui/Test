@@ -20,7 +20,16 @@ public class PITest {
         //System.out.println(cal1(50000000));
         //System.out.println(Math.PI);
         print1();
+        System.out.println(!true);
     }
+    static int findN(int n){
+        n |= n >> 1;
+        n |= n >> 2;
+        n |= n >> 4;
+        n |= n >> 8;
+        return n;
+    }
+
 
     public static double cal(int count) {
         double result = 1.00d;

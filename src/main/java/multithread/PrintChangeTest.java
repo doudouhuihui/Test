@@ -21,7 +21,7 @@ public class PrintChangeTest {
                     if (!print.flag) {
                         print.count++;
                         print.flag = true;
-                        System.out.println(print.count);
+                        System.out.println(Thread.currentThread().getName() + "---" + print.count);
                         print.notifyAll();
                         try {
                             print.wait();
@@ -45,7 +45,7 @@ public class PrintChangeTest {
                     if(print.flag){
                         print.count++;
                         print.flag = false;
-                        System.out.println(print.count);
+                        System.out.println(Thread.currentThread().getName() + "---" + print.count);
                         print.notifyAll();
                         try {
                             print.wait();
@@ -71,6 +71,6 @@ public class PrintChangeTest {
     }
 }
 class Print{
-    public volatile int count;
-    public volatile boolean flag;
+    public volatile static int count;
+    public volatile static boolean flag;
 }

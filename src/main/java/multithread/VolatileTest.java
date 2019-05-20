@@ -13,43 +13,28 @@ package multithread;
  * 2
  ******************************************************************************/
 public class VolatileTest {
-    private int x;
-    private int y;
-    private int z;
-    public void set(){
-        z = 3;
-        x = 1;
-        y = 2;
-    }
-    public static void main(String[] args) throws InterruptedException {
-        VolatileTest test = new VolatileTest();
-        Thread t1 = new Thread(()->{
-            test.set();
-        });
-        Thread t2 = new Thread(()->{
-            while(true) {
-                if (test.z == 3) {
-                    System.out.println("x:" + test.x);
-                    System.out.println("y:" + test.y);
-                    break;
-                }
-            }
-        });
-        Thread t3 = new Thread(()->{
-            while(true) {
-                if (test.z == 3) {
-                    System.out.println("x=" + test.x);
-                    System.out.println("y=" + test.y);
-                    break;
-                }
-            }
-        });
+   volatile int result;
 
-        t2.start();
-        t3.start();
-        t1.start();
-        t1.join();
-        t2.join();
-        t3.join();
+    public int getResult() {
+        return result;
+    }
+
+    public void setResult(int result) {
+        this.result = result;
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        VolatileTest volatileTest = new VolatileTest();
+        for (int i = 0; i < 8; i++) {
+            new Thread(()->{
+                int x = 0;
+                while(volatileTest.getResult() < 100){
+                    x++;
+                }
+                System.out.println(x);
+            }).start();
+        }
+        Thread.sleep(100);
+        volatileTest.setResult(200);
     }
 }

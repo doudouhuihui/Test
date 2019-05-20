@@ -7,7 +7,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /*****************************************************************************
- * @className: ThreadProblem1$
+ * @className: ThreadAdd10kTest$
  * @date : 2019/5/8$ 14:55$
  * @author : 陈伟振   (chenweizhen@vvise.com)
  * @module : [项目]-[一级菜单]-[二级菜单]-[三级菜单]
@@ -20,20 +20,20 @@ import java.util.concurrent.Executors;
  * 1
  * 2
  ******************************************************************************/
-public class ThreadProblem1 {
+public class ThreadAdd10kTest {
     private int count = 0;
 
     public int getCount() {
         return count;
     }
-    public synchronized void add10K() {
+    public void add10K() {
        for (int i = 0; i < 10000; i++) {
            count++;
        }
     }
 
     public static void main(String[] args) throws InterruptedException {
-        final ThreadProblem1 test = new ThreadProblem1();
+        final ThreadAdd10kTest test = new ThreadAdd10kTest();
         Thread t1 = new Thread(() -> {
             test.add10K();
 
@@ -46,6 +46,7 @@ public class ThreadProblem1 {
         t2.start();
         t1.join();
         t2.join();
+        System.out.println(test.getCount());
 
     }
 }

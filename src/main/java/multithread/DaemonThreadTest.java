@@ -12,7 +12,7 @@ package multithread;
  * 1
  * 2
  ******************************************************************************/
-public class MainThreadTest {
+public class DaemonThreadTest {
     public static void main(String[] args) {
         //主线程不能设置为守护线程
         //System.out.println(Thread.currentThread().isAlive());

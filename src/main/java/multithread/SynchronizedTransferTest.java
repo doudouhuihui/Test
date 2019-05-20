@@ -15,13 +15,13 @@ import java.util.List;
  * 1
  * 2
  ******************************************************************************/
-public class SynchronizedTest {
+public class SynchronizedTransferTest {
     //单例
     private final Allocator admin = Allocator.getInstance();
     private static final Object obj = new Object();
     private int balance;
 
-    public SynchronizedTest(int balance) {
+    public SynchronizedTransferTest(int balance) {
         this.balance = balance;
     }
 
@@ -32,8 +32,8 @@ public class SynchronizedTest {
      * @param b
      * @param amt
      */
-    public void transfer(SynchronizedTest b, int amt) {
-        synchronized (SynchronizedTest.class) {
+    public void transfer(SynchronizedTransferTest b, int amt) {
+        synchronized (SynchronizedTransferTest.class) {
             //或者synchronized (obj){
             if (this.balance >= amt) {
                 this.balance -= amt;
@@ -48,7 +48,7 @@ public class SynchronizedTest {
      * @param b
      * @param amt
      */
-    public void transfer2(SynchronizedTest b, int amt) {
+    public void transfer2(SynchronizedTransferTest b, int amt) {
         while (!admin.apply(this, b)){
         }
         try {
@@ -93,9 +93,9 @@ public class SynchronizedTest {
 
          transfer2用的细粒度锁，先锁住当前，再锁住目标对象，好多了，A转B，C转D，两者可以同步进行
          */
-        SynchronizedTest a = new SynchronizedTest(1000);
-        SynchronizedTest b = new SynchronizedTest(2000);
-        SynchronizedTest c = new SynchronizedTest(3000);
+        SynchronizedTransferTest a = new SynchronizedTransferTest(1000);
+        SynchronizedTransferTest b = new SynchronizedTransferTest(2000);
+        SynchronizedTransferTest c = new SynchronizedTransferTest(3000);
         Thread t1 = new Thread(() -> {
             //由于执行速度太快，转1000次1块的，让线程有切换的机会
             for (int i = 0; i < 1000; i++) {
@@ -121,8 +121,8 @@ public class SynchronizedTest {
     }
 
     public static void deadLockTest() throws InterruptedException {
-        SynchronizedTest a = new SynchronizedTest(1000);
-        SynchronizedTest b = new SynchronizedTest(2000);
+        SynchronizedTransferTest a = new SynchronizedTransferTest(1000);
+        SynchronizedTransferTest b = new SynchronizedTransferTest(2000);
         /**
          * 有A,B两个帐户，一个1000，一个2000，A向B转1000，同时B向A转1500
          * 正常结果应该是A 1500， B 1500
