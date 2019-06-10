@@ -1,4 +1,4 @@
-package other;
+package j8character;
 
 import java.util.ArrayList;
 import java.util.Arrays;

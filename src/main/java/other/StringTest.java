@@ -16,6 +16,8 @@ package other;
 public class StringTest {
     public static void main(String[] args) throws Exception {
         String s = "这是一个？";
-        System.out.println(s.getBytes("gb2312").length);
+        System.out.println(s.getBytes("utf-8").length);
+
+
     }
 }

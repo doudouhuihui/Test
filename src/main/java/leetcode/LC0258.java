@@ -1,23 +1,27 @@
-package other;
+package leetcode;
 
 /*****************************************************************************
- * @className: Other.IntegerTest$
- * @date : 2019/4/16$ 17:56$
+ * @className: LC0258$
+ * @date : 2019/5/22$ 16:30$
  * @author : 陈伟振   (chenweizhen@vvise.com)
  * @module : [项目]-[一级菜单]-[二级菜单]-[三级菜单]
- * @desc : [功能简介]
+ * @desc : [
+给定一个非负整数 num，反复将各个位上的数字相加，直到结果为一位数。
+示例:
+输入: 38
+输出: 2
+解释: 各位相加的过程为：3 + 8 = 11, 1 + 1 = 2。 由于 2 是一位数，所以返回 2。]
  * ------------------------------------------------------------
  * 修改历史
  * 序号             日期                      修改人                  修改原因
  * 1
  * 2
  ******************************************************************************/
-public class IntegerTest {
+public class LC0258 {
     public static void main(String[] args) {
-        System.out.println(Integer.toBinaryString(19));
-        int a = 200;
-        Integer i = 200;
-        Integer i1 = 200;
-        System.out.println(i==i1);
+        System.out.println(addDigits(38));
+    }
+    public static int addDigits(int num) {
+        return 1 + (num-1)%9;
     }
 }

@@ -1,6 +1,7 @@
 package other;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 /*****************************************************************************
  * @className: PITest$
@@ -20,7 +21,17 @@ public class PITest {
         //System.out.println(cal1(50000000));
         //System.out.println(Math.PI);
         print1();
-        System.out.println(!true);
+        System.out.println(strStr("hello", "ll"));
+    }
+
+    public static int strStr(String s1, String s2){
+        return s1.indexOf(s2);
+    }
+    public static List<String> letterCombinations(String digits){
+        if(digits.matches("^[2-9]$")){
+
+        }
+        return null;
     }
     static int findN(int n){
         n |= n >> 1;
