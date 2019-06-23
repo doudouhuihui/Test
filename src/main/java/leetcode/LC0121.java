@@ -27,7 +27,7 @@ package leetcode;
 public class LC0121 {
     public static void main(String[] args) {
         int[] arr = {7,1,5,3,6,4};
-        System.out.println(maxProfit2(arr));
+        System.out.println(test(arr));
     }
 
     /**
@@ -116,6 +116,11 @@ public class LC0121 {
     }
 
 
+    /**
+     * 其实可以发现，dp[i][0]每次都会用到上一天的状态，因此用一个状态就可以了，甚至不用边界判断了
+     * @param prices
+     * @return
+     */
     private static int maxProfit2(int[] prices){
         if(prices.length==0)return 0;
         int a = 0, b = Integer.MIN_VALUE;
@@ -125,4 +130,33 @@ public class LC0121 {
         }
         return a;
     }
+
+    private static int test(int[] prices){
+        int dp_i_0 = 0, dp_i_1 = Integer.MIN_VALUE;
+        for (int i =0; i < prices.length; i++){
+            dp_i_0 = Math.max(dp_i_0, dp_i_1 + prices[i]);
+            dp_i_1 = Math.max(dp_i_1, -prices[i]);
+        }
+
+
+
+
+
+        return dp_i_0;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
