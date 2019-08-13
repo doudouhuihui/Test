@@ -42,8 +42,8 @@ public class LC0179 {
         for (int i = 0; i < nums.length; i++) {
             sb.append(nums[i]);
         }
-
-        char[] chs = sb.toString().toCharArray();
+        String str = sb.toString();
+        char[] chs = str.toCharArray();
         for (int i = 0; i< chs.length; i++) {
             for (int j = 0; j< chs.length-1-i; j++){
                 if(chs[j]<chs[j+1]){

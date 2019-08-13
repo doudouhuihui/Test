@@ -20,6 +20,7 @@ public class ReflectMethodTest {
         Arrays.stream(m3).forEach(System.out::println);
 
         //获取特定的方法
+
         Method m4 = c.getDeclaredMethod("privateTest");
         System.out.println(m4);
 
@@ -65,7 +66,19 @@ public class ReflectMethodTest {
         System.out.println(m2.getModifiers());
         m2.setAccessible(true);
         System.out.println(m2.isAccessible());
+
+        System.out.println("----------------------------------");
+        //重载方法，后面是参数类型，与声明的保持一致
+        Method mm = People.class.getDeclaredMethod("eat",int.class,String.class);
+        System.out.println(mm.getParameterCount());
+
     }
+}
+class People{
+    public void eat(){}
+    public void eat(String a){}
+    public void eat(int b){}
+    public void eat(String a, int b){}
 }
 
 interface MT{
