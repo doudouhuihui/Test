@@ -1,6 +1,7 @@
 package other;
 
 
+import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 
 /*****************************************************************************
@@ -16,11 +17,48 @@ import java.util.Arrays;
  * 2
  ******************************************************************************/
 public class StringTest {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
+
+
+        testIntern();
+
+
+    }
+
+    private static void testIntern() {
+
+        System.out.println(new String("11"));
+
+        String s1 = "java";
+        String s2 = "ja" + "va";
+        String s3 = new String("java");
+        String s4 = "ja";
+        String s5 = "va";
+        String s6 = s4 + s5;
+        String s7 = new String("ja") + new String("va");
+        String s8 = new StringBuilder().append("java").toString();
+
+        System.out.println(s1 == s2);  //true
+        System.out.println(s1 == s3);  //false
+        System.out.println(s1 == s6);   //false
+        System.out.println(s1 == s7);   //false
+        System.out.println(s7.intern() == s1);
+        System.out.println(s7.intern() == s7);
+
+
+
+    }
+
+    private static void testGetBytes() {
         String s = "这是一个？";
-        System.out.println(s.getBytes("utf-8").length);
+        try {
+            System.out.println(s.getBytes("utf-8").length);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+    }
 
-
+    private static void testSplit() {
         //split方法
         System.out.println(Arrays.toString("/".split("/")));
 
@@ -32,27 +70,17 @@ public class StringTest {
 
         System.out.println(Arrays.toString("///".split("/")));
 
-        System.out.println(Arrays.toString("///,".split("/")));
+        System.out.println(Arrays.toString("///.".split("/")));
+
+    }
+
+    public static void testReplace() {
 
         //replace
-        System.out.println("helloworld-java".replace("world-","."));
-        System.out.println("helloworld-java".replaceAll("l{2,}","."));
-        System.out.println("123123123".replace("1","+"));
-        System.out.println("123123123".replaceAll("1*","+"));
-        System.out.println("123123123".replaceFirst("\\d","+"));
-
-
-
-
-        for(int i = 0; i < 100; i++){
-
-        }
-
-
-
-
-
-
-
+        System.out.println("helloworld-java".replace("world-", "."));
+        System.out.println("helloworld-java".replaceAll("l{2,}", "."));
+        System.out.println("123123123".replace("1", "+"));
+        System.out.println("123123123".replaceAll("1*", "+"));
+        System.out.println("123123123".replaceFirst("\\d", "+"));
     }
 }
