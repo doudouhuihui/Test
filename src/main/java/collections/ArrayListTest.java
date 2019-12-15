@@ -27,8 +27,16 @@ public class ArrayListTest {
         arrayList.add("333");
         List subList = arrayList.subList(0,2);
         arrayList.set(1,"000");
+        subList.set(0, "111");
+        System.out.println(arrayList.toString());
         System.out.println(subList.toString());
 
+    }
+
+    private static void test1() {
+        ArrayList list = new ArrayList();
+        list.add(11);
+        list.add(11);
     }
 
 

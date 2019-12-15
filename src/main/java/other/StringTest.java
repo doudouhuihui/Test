@@ -20,10 +20,14 @@ public class StringTest {
     public static void main(String[] args) {
 
 
-        testIntern();
+        //testIntern();
 
+
+        testReplace();
 
     }
+
+
 
     private static void testIntern() {
 
@@ -80,7 +84,13 @@ public class StringTest {
         System.out.println("helloworld-java".replace("world-", "."));
         System.out.println("helloworld-java".replaceAll("l{2,}", "."));
         System.out.println("123123123".replace("1", "+"));
-        System.out.println("123123123".replaceAll("1*", "+"));
+        System.out.println("123123123".replaceAll("1+", "+"));
         System.out.println("123123123".replaceFirst("\\d", "+"));
+
+        System.out.println("userInfo".replaceAll("([a-z])([A-Z])", "$1_$2"));
+
+        System.out.println("我是中国人".replaceAll("(?=中国)","z"));
+
+
     }
 }
