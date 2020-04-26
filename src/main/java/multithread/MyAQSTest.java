@@ -1,9 +1,11 @@
-package j8character;
+package multithread;
+
+import java.util.concurrent.locks.AbstractQueuedSynchronizer;
 
 /*****************************************************************************
- * @className: LambdaTest$
- * @date : 2019/5/6$ 16:25$
- * @author : 陈伟振   (chenweizhen@vvise.com)
+ * @className: MyAQSTest.java
+ * @date : 2020-04-17 16:38
+ * @author : 樊玺   (fanxi@vvise.com)
  * @module : [项目]-[一级菜单]-[二级菜单]-[三级菜单]
  * @desc : [功能简介]
  * ------------------------------------------------------------
@@ -12,12 +14,8 @@ package j8character;
  * 1
  * 2
  ******************************************************************************/
-public class LambdaTest {
-    public static void main(String[] args) {
-
-    }
-
-    void test(){
-
+public class MyAQSTest extends AbstractQueuedSynchronizer {
+    public int a(){
+        return getState();
     }
 }
