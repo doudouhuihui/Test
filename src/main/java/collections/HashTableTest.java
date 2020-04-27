@@ -17,6 +17,7 @@ import java.util.*;
 public class HashTableTest {
     public static void main(String[] args) {
         Hashtable<String, String> hashtable = new Hashtable();
+        hashtable.put(null, "");
         for (int i = 0; i < 10; i++) {
             hashtable.put(Integer.toString(i)+"--"+ new Random().nextInt(100), Integer.toString(i));
         }

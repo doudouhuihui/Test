@@ -1,3 +1,9 @@
+import java.util.HashMap;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.locks.ReentrantLock;
+
 /*****************************************************************************
  * @className: PrintShape$
  * @date : 2019/8/7$ 11:04$
@@ -11,7 +17,11 @@
  * 2
  ******************************************************************************/
 public class PrintShape {
+    static int i = 0;
     public static void main(String[] args) {
+        ThreadLocal<Long> threadLocal = new ThreadLocal<>();
+        threadLocal.set(100l);
+        System.out.println(threadLocal.get());
         for (int i = 1; i <= 9; i++) {
             if (i <= 5) {
                 for (int k = 5; k > i; k--) {

@@ -1,5 +1,6 @@
 package collections;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 
 /*****************************************************************************
@@ -17,5 +18,7 @@ import java.util.LinkedList;
 public class LinkedListTest {
     public static void main(String[] args) {
         LinkedList linkedList = new LinkedList();
+        Iterator iterator = linkedList.iterator();
+        iterator.hasNext();
     }
 }

@@ -1,5 +1,6 @@
 package collections;
 
+import java.util.Iterator;
 import java.util.TreeSet;
 
 /*****************************************************************************
@@ -23,6 +24,15 @@ public class TreeSetTest {
         treeSet.add(new TS(5));
         treeSet.add(new TS(1));
         treeSet.add(new TS(3));
+        treeSet.add(new TS(8));
+        treeSet.add(new TS(2));
+        treeSet.add(new TS(6));
+
+       Iterator it = treeSet.descendingIterator();
+       while (it.hasNext()) {
+           TS ts = (TS) it.next();
+           System.out.println(ts.getLength());
+       }
 
     }
 }

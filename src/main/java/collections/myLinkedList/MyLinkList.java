@@ -124,8 +124,36 @@ public class MyLinkList<E> {
             throw new NoSuchElementException();
         }
         E e = last.item;
-        unlink(last);
+        unlinkLast(last);
         return e;
+    }
+
+    public void addFirst(E e){
+        linkFirst(e);
+    }
+    public void addLast(E e){ linkLast(e);}
+    public int size(){return size;}
+    public boolean add(E e) {
+        linkLast(e);
+        return true;
+    }
+    public boolean remove(Object e){
+        if (e == null) {
+            for (Node<E> node = first; node.next!=null; node = node.next) {
+                if (node.item == null) {
+                    unlink(node);
+                    return true;
+                }
+            }
+        } else {
+            for (Node<E> node = first; node.next!=null; node = node.next) {
+                if (node.item.equals(e)) {
+                    unlink(node);
+                    return true;
+                }
+            }
+        }
+        return true;
     }
 
 }

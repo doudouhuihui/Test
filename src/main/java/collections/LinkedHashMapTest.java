@@ -18,7 +18,7 @@ import java.util.Map;
  ******************************************************************************/
 public class LinkedHashMapTest {
     public static void main(String[] args) {
-        Map linkedHashMap = new LinkedHashMap<String, String>(16, .75f, true){
+        LinkedHashMap linkedHashMap = new LinkedHashMap<String, String>(16, .75f, true){
             @Override
             protected boolean removeEldestEntry(Map.Entry<String,String> eldest) {
                 if(size()>5){
@@ -34,7 +34,8 @@ public class LinkedHashMapTest {
         linkedHashMap.put("5","11");
         linkedHashMap.put("6","11");
         linkedHashMap.put("7","11");
-        linkedHashMap.get("3");
+        linkedHashMap.put("3","11");
+//        linkedHashMap.get("3");
 
         Iterator iterator = linkedHashMap.keySet().iterator();
         while (iterator.hasNext()){

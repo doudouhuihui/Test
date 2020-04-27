@@ -1,5 +1,7 @@
 package other;
 
+import java.util.Objects;
+
 /*****************************************************************************
  * @className: Other.IntegerTest$
  * @date : 2019/4/16$ 17:56$
@@ -13,11 +15,32 @@ package other;
  * 2
  ******************************************************************************/
 public class IntegerTest {
+
+    private boolean flag = true;
+    private int a = 1;
+    private double d = 1.25;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        IntegerTest that = (IntegerTest) o;
+        return flag == that.flag &&
+                a == that.a &&
+                Double.compare(that.d, d) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(flag, a, d);
+    }
+
     public static void main(String[] args) {
         System.out.println(Integer.toBinaryString(19));
         int a = 200;
         Integer i = 200;
         Integer i1 = 200;
         System.out.println(i==i1);
+        System.out.println(new IntegerTest().hashCode());
     }
 }
