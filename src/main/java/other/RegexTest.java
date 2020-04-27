@@ -18,11 +18,13 @@ import java.util.regex.Pattern;
 public class RegexTest {
     public static void main(String[] args) {
 
-//        test2();
+      //  test();
+
+        test2();
 
    //     test3();
 
-        test4();
+   //     test4();
     }
 
     private static void test() {
@@ -41,7 +43,7 @@ public class RegexTest {
 
     private static void test2() {
         String str = "<div>123abc</div><div>456qwe</div>";
-        String regex = "<div>(\\d*)([a-z]*)</div>";
+        String regex = "<div>(\\d*?)([a-z]*?)</div>";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(str);
        // System.out.println(matcher.matches());
