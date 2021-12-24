@@ -20,7 +20,6 @@ public class AllTest {
     public static void test(String[] args) {
 //        System.out.println(Arrays.toString("123.2.2.3.2.3".split("\\.", 2)));
        // Collections.EMPTY_LIS
-        //�ύ(����)ʱ��������_���󵥺�_��ΰ��_��������_�Ķ�����_Ӱ�췶Χ��webǰ̨��csf�ӿڣ����̣���������
 
         List<String> redList = new ArrayList(6);
         Integer rand;
